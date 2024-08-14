@@ -27,7 +27,7 @@ app.use('/api/payments' , paymentRouter)
 
 mongoose.connect(process.env.MONGO_URL).then(()=> console.log('mongodb connected')).catch((error)=> console.log(error))
 
-app.listen(process.env.PORT, () => {console.log('server running')})
+app.listen(process.env.PORT||3000, () => {console.log('server running')})
 
 // This is your test secret API key.
 
