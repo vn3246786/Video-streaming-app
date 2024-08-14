@@ -27,12 +27,8 @@ export const registerUser = async (user ,UserDispatch,accesstokenDispatch )=>{
 
 export const loginUser = async (user ,UserDispatch,accesstokenDispatch)=>{
     UserDispatch({type:"start"});
-    console.log("a")
-    try {
-        
+    try { 
         const res = await axios.post("/api/auth/login", user)
-        console.log(res.data)
-        console.log(res)
         if(findError(res.data)){
             UserDispatch({type:"failure" ,payload:res.data})
             toast.error(res.data)
@@ -44,6 +40,7 @@ export const loginUser = async (user ,UserDispatch,accesstokenDispatch)=>{
          } 
             
     } catch (error) {
+        console.log(error)
         toast.error("network error")
         UserDispatch({type:"failure", payload:"network error"})
         
