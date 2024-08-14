@@ -92,6 +92,7 @@ router.post('/login',async (req, res) => {
       const refreshToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status}, process.env.REFRESH_TOKEN_SECRET_KEY)
       res.cookie("refreshToken",refreshToken,{httpOnly:true})
       res.status(200).json({...info , accessToken})
+      console.log({...info , accessToken})
     }else {
       res.json('username or password is incorrect')
     } 
