@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   server:{
 proxy:{
-  "/api":"http://localhost:3000"
+  "/api":"https://video-streaming-app-6wzt.onrender.com"
 }
   },
   plugins: [react()],
