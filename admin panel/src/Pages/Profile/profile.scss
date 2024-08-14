@@ -1,0 +1,92 @@
+.profile{
+    min-height: 100vh;
+    background-color: rgb(20, 20, 57);
+    .header{
+        padding-top: 10px;
+        padding-left: 10px;
+        display: flex;
+        color:white;
+        font-size: 2rem;     
+        .icon{
+            font-size: 2rem;            
+        }
+    }
+    .title-subscription{
+        color: white;
+        font-size: 3rem;
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+    .User-details{
+        margin-left: 20px;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .btn{
+            width: 150px;
+            padding: 10px;
+        }
+        .wrapper{
+            display: flex;
+            width: 700px;
+            color:white;
+            font-size: 2rem;  
+            align-items: center;
+            gap: 20px;
+            &.profile-pic{
+                .file{
+                    display: none;
+                }
+            }
+           .image{
+                width: 100px;
+                height: 100px;
+                background-color: white;
+                border-radius: 50%;
+            }  
+            .edit{
+                margin-left: auto;
+            }
+            .input{
+                background-color: rgb(20, 20, 57);
+                color: rgb(176, 169, 169) ;
+                font-size: 2rem;
+            }
+            .value{
+                margin-left: 5px;
+                color: rgb(176, 169, 169);
+            }
+        }
+    }
+    .subscription-details{
+        margin-left: 20px;
+        margin-top: 10px;
+        .subscription-info{
+            display: flex;
+            color: white;
+            font-size: 1.5rem;
+            .info{
+                margin-left: 5px;
+                color: rgb(176, 169, 169);
+            }
+        }
+        .buttons{
+            margin-top: 10px;
+            margin-left: 20px;
+            display: flex;
+            gap: 10px;
+            .btn{
+                padding: 7px;
+                &.cancel{
+                    color: red;
+                }
+            }
+        }
+    }
+    .spinner{
+        position: absolute;
+        left:50%;
+        top: 50%;
+    }
+}

@@ -1,0 +1,86 @@
+.navbar{
+    background-color: rgb(20, 19, 19, 0.7);
+    display: flex;
+    justify-content: space-between;
+    padding-right: 30px;
+    height: 40px;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+
+
+.container{
+color: white;
+display: flex;
+align-items: center;
+
+&.left{
+    img{
+        height: 30px;
+        margin-left: 10px;
+        border-radius: 50%;
+       
+    }
+   span{
+    height: 100%;
+    align-content: center;
+    margin-left: 10px;
+    cursor: pointer;
+   }
+   .genreList{
+position: relative;
+&:hover{
+    .wrapper{
+        display: block;
+    }
+}
+    .wrapper{
+        display: none;
+        position: absolute;
+        z-index: 999;
+        left: 5px;
+        background-color: black;
+        .genre{
+            padding: 5px;
+            cursor: pointer;
+            &:hover{
+background-color: gray;
+            }
+        }
+    }
+   }
+}
+&.right{
+    .search{
+        cursor: pointer;
+    }
+    .profile-container{
+        margin-left: 10px;
+        &:hover{
+                .profileOptions{
+                    display: flex;
+                    flex-direction: column;
+                    background-color: black;
+                    position: absolute;
+                    right: 1%;
+                    border: 1px solid grey;
+                    z-index: 999;
+                    
+                    
+                }
+            }
+        }
+    }
+    .profileOptions{
+        display: none;
+        .option{
+            padding: 10px;
+            &:hover{
+                cursor: pointer;
+                background-color: white;
+                color: black;
+            }
+        }
+    }
+}
+}

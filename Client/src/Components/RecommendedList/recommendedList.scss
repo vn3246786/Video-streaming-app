@@ -1,0 +1,37 @@
+.recommendedList{
+    color: white;
+    .title{
+        margin-left: 20px;
+        padding: 10px 0px;
+    }
+    
+        .listItemNavigator{
+            position: relative;
+            display: flex;
+    padding: 0px 30px;
+    .slider{
+    position: absolute;
+    z-index: 999;
+    height: 150px;
+    background-color: rgb(24, 23, 23 , 0.5);
+    color: white;
+    width: 30px;
+    
+    &.back{
+        left: 0%;
+    }
+    
+    &.forward{
+        right: 0%;
+    }
+    
+    
+    }
+     .listitems{
+                display: flex;
+                transition: 1s all ease;
+                position: relative;
+    
+            }
+        }
+}

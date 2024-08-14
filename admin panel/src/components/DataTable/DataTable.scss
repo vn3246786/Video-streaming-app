@@ -1,0 +1,59 @@
+.DataTable{
+    position: relative;
+    .spinner{
+        z-index: 100;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin-left:auto ;
+        margin-right:auto ;
+        margin-top:auto ;
+        margin-bottom:auto ;
+    }
+   width: 100%;
+.pagination{
+    display: flex;
+    color: white;
+    background-color: #1b1932;
+    height: 50px;
+    justify-content: flex-end;
+    .rowSelect{
+        display: flex;
+        margin-right: 50px;
+        .label{
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+        .select{
+            margin-top: 10px;
+            height: 30px;
+        }
+    }
+    .wrapper{
+        display: flex;
+        margin-top: 10px;
+        margin-right: 20px;
+        width: auto;
+        .icons{
+            color: white;
+        }
+        .pageNumber{
+            margin-top: 2px;
+        }
+    }
+   
+}
+
+
+}
+.css-1ps6pg7-MuiPaper-root {
+      .option{
+        cursor: pointer;
+           padding: 10px;
+           &:hover{
+            background-color: #80808066;
+           }
+       }
+   }

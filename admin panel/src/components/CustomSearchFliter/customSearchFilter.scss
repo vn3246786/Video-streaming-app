@@ -1,0 +1,44 @@
+.customSearchFliter{
+    background-color: #1b1932;
+    padding-top: 20px;
+    .searchbar-wrapper{
+        @media screen and (max-width: 1041px) {
+            width: 50%;
+          }
+        position: relative;
+        width: 37.03703703703704%;
+        margin-left: auto;
+        margin-right: 50px;
+        .searchbar{
+            display: flex; 
+        .search{
+            height: 100%;
+            border-top-left-radius: 25%;
+            border-bottom-left-radius: 25%;
+            color: black;
+            background-color: white;
+        }
+            .searcharea{
+             width: 100%;
+             
+            }
+    
+        }
+.suggestion-wrapper{
+    position: absolute;
+    z-index: 999 ;
+    width: 100%;
+    height: auto;
+    background-color: white;
+   .suggestions{
+    height: 25px;
+    padding-left: 5px;
+    align-content: center;
+    cursor: pointer;
+    &:hover{
+background-color: grey;
+    }
+   }
+}
+    }
+}

@@ -1,0 +1,51 @@
+.searchedmovie{
+    display: flex;
+    min-height: 200px;
+    min-width: inherit;
+    padding: 0px 20px;
+    margin: 5px 14px;
+    color: white;
+    @media screen and (max-width: 411px) {
+       width: 340px;
+    }
+    .icons{
+        position: absolute;
+    }
+  &:hover{
+    border: 1px solid grey;
+    cursor: pointer;
+  }
+  .image{
+        height: 100%;
+        width: 200px;
+        margin-right: 5px;
+        object-fit: cover;
+        @media screen and (max-width: 430px) {
+            width: 100px;
+         }
+    }
+    .container{
+        width: 59vw;
+        display: flex;
+        flex-direction: column;
+        h1{
+            margin-bottom: 10px;
+        }
+        .rating{
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .buttons{
+            margin-top: auto;
+            display: flex;
+           button{
+            height: 40px;
+            width: 70px;
+            margin-right: 5px;
+            cursor: pointer;
+           }
+        }
+    }
+}

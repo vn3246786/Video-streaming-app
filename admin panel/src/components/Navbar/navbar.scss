@@ -1,0 +1,44 @@
+.navbar{
+    height: 60px;
+    min-width: 98vw;
+  background-color:#2b2e41;
+  display: flex;
+  justify-content: space-between;
+  .leftside{
+    height:100%;
+    align-content: center;
+    color: white;
+    font-size: 2rem;
+    margin-left: 20px;
+  }
+  .rightside{
+    position: relative;
+   .searchbar{
+    display: flex;
+    align-items: center;
+   }
+    height:100%;
+    align-content: center;
+    color: white;
+    font-size: 2rem;
+    margin-left: 20px;
+
+   .input{
+    width: 85.0625%;
+    }
+    .suggestions{
+      position: absolute;
+      z-index: 100;
+      background-color: white;
+      width: 80%;
+      .options{
+    z-index: inherit;
+       color: black;
+       font-size: 1.5rem;
+       &:hover{
+        background-color: grey;
+       }
+      }
+    }
+  }
+}

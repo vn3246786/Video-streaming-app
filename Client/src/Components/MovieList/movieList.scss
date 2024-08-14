@@ -1,0 +1,48 @@
+.movieList{
+    display: flex;
+    min-height: 200px;
+    margin: 5px 14px;
+    padding: 0px 20px;
+    color: white;
+    margin-top: 30px;
+    @media screen and (max-width: 411px) {
+        width: 340px;
+     }
+    .icons{
+        position: absolute;
+    }
+  &:hover{
+    border: 1px solid grey;
+  }
+  .image{
+        height: 100%;
+        width: 200px;
+        margin-right: 5px;
+        @media screen and (max-width: 430px) {
+            width: 100px;
+         }
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        h1{
+            margin-bottom: 10px;
+        }
+        .buttons{
+            margin-top: auto;
+            display: flex;
+           button{
+            height: 40px;
+            width: 70px;
+            margin-right: 5px;
+            cursor: pointer;
+           }
+        }
+        .rating{
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+    }
+}

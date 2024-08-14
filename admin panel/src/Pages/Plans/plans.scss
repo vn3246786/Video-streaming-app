@@ -1,0 +1,46 @@
+.plans{
+    height: 100vh;
+    background-color: rgb(6, 6, 65);
+    .spinner{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+    .flex-container{
+        display: flex;
+        .main-container{
+            width: 84.375%;
+            .title-container{
+                .icon{
+                    font-size: 2rem;
+                }
+                display: flex;
+                align-items: center;
+                color: white;
+                font-size: 2rem;
+
+            }
+            .Plans-container{
+                margin-top: 10px;
+                background-color: rgb(9, 9, 95);
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+              min-height: 200px;
+              width: 100%;
+                color: white;
+                font-size: 2rem;
+                .btns{
+                    display: flex;
+                    gap: 10px;
+                    .btn{
+                        padding: 5px;
+                    }
+                }
+               
+            }
+
+        }
+    }
+}

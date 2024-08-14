@@ -1,0 +1,47 @@
+.genrePage{
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: black;
+    color: white;
+    padding-top: 25px;
+    .icon{
+        color: white;
+        margin-left: 20px;
+        font-size: 2rem;
+    }
+    .spinner{
+        position: absolute;
+ left: 50%;
+ top: 50%;
+    }
+    .header{
+        display: flex;
+        margin: 0px 21px;
+        justify-content: space-between;
+    }
+    .Genre{
+        &:hover{
+            .wrapper{
+
+                display: block;
+            }
+         }
+        .wrapper{
+            display: none;
+           border: 1px solid grey;
+         position: absolute;
+         background-color: black;
+         right: 1px;
+         
+         .option{
+            padding: 5px;
+            cursor: pointer;
+            &:hover{
+                background-color: grey;
+            }
+           
+         }
+        }
+
+    }
+}

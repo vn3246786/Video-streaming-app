@@ -1,0 +1,61 @@
+.sliderWithTooltip{
+    position: absolute;
+    bottom: 40px;
+width: 98%;
+left: 1%;
+&:hover{
+    .video-container{
+    display: block;
+    }
+
+}
+    .bar{
+        cursor: pointer;
+        width: 100%;
+        background-color: grey;
+        height: 10px;
+    }
+    
+            .bar-loaded{
+                position: absolute;
+                background-color: white;
+                height: 10px;
+            }
+            .bar-completed{
+                position: absolute;
+                background-color:red;
+                height: 10px;
+            }
+            .thumb{
+                position: absolute;
+                bottom: -5.5px;
+              
+                background-color: red;
+                padding: 10px;
+                border-radius: 50%;
+                border-top-left-radius: 36%;
+                border-bottom-left-radius: 36%;
+            }
+
+            
+            .video-container{
+                display: none;
+                position: absolute;
+                bottom: 40px;
+                width: 15.625%;
+                height: 100px;
+                
+                .window{
+                    object-fit: cover;
+                    width: 100%;
+                    height: 90%;
+                }
+                .timestamp{
+                    display: flex;
+                    width: 100%;
+                    justify-content: center;
+                    color: white;
+                    height: 10px;
+                }
+            }
+        } 

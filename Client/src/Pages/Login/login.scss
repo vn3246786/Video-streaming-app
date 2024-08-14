@@ -1,0 +1,58 @@
+.login{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .background-image{
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}    
+
+        .loginForm{
+            position: relative;
+          border-radius: 10px;
+          color: white;
+            width: 269px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            background-color: black;
+            gap: 10px;
+            .spinner{
+                position: absolute;
+                left: 32%;
+                top: 34%;
+            }
+            img{
+                height: 40px;
+                border-radius: 50%;
+                width: 40px;
+                margin-left: 90px;
+            }
+            h1{
+                color: white;
+                font-size: 2rem;
+                margin-left: 80px;
+                
+            }
+            input{
+                height: 40px;
+            }
+            button{
+                background-color: red;
+                height: 30px;
+                color: white;
+                font-size: larger;
+            }
+            .go-to{
+                cursor: pointer;
+            }
+        }
+        
+    }
+  

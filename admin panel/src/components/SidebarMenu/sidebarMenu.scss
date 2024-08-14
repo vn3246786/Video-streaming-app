@@ -1,0 +1,47 @@
+.sidebarMenu{
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+ 
+    .wrapper{
+        display: flex;
+        gap: 5%;
+        padding: 20px 0%;
+        padding-left: 5%;
+       
+        &:hover{
+            background-color:#4b5587;
+            border-left: 1% solid white;
+            cursor: pointer;
+        }
+        .icons{
+            color:#a5b5b7;
+        }
+        .name{
+            @media screen and (max-width: 640px) {
+                display: none;
+              }
+            color:#bccdcf;
+        }
+    }
+    .subWrapper{
+        padding: 5% 2%;
+        display: flex;
+        gap: 5%;
+        &:hover{
+            background-color:#4b5587;
+            border-left: 1% solid white;
+        }
+.icons{
+    color:#a5b5b7;
+    margin-left: 12.5%;
+}
+        .subName{
+            @media screen and (max-width: 640px) {
+                display: none;
+              }
+color:#a5b5b7;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+.watchListPage{
+    background-color: black;
+    color: white;
+    padding-top: 10px;
+    height: auto;
+    min-height: 100vh;
+ 
+    .spinner{
+        height: inherit;
+        width: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+    .header{
+        display: flex;
+        .icon{
+            font-size: 3rem;
+        }
+        .title{
+            font-size: 3rem;
+            margin-left: 30px;
+        }
+    }
+
+}

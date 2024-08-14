@@ -1,0 +1,73 @@
+.addPlans{
+    .spinner{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+    .flex-container{
+        display: flex;
+        .update-container{
+            width: 100% ;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 100px;
+            background-color: rgb(13, 13, 70);
+            color: white;
+            .input-container-image{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .input-image{
+                    display: none;
+                }
+                .image-label{
+                    width: 120px;
+                    margin-top: 10px;
+                    padding: 10px;
+                    background-color: green;
+                }
+                .image{
+                    border: 1px solid black;
+                    height: 100px;
+                    width: 100px;
+                }
+            }
+            .input-container{
+               width: auto;
+               margin-bottom: 20px;
+               .input{
+               height: 30px;
+               width: 300px;
+               }
+               .input-image{
+                   display: none;
+               }
+               .image-label{
+                   margin-top: 10px;
+                   padding: 10px;
+                   background-color: green;
+               }
+            }
+            .btn-container{
+            display: flex;
+            gap: 10px;
+            height: 50px;
+            align-items: center;
+                .button-Upload{
+                    height: 30px;
+                 margin-top: 10px;
+                 width: 100px;
+                 padding: 5px;
+                 display: flex;
+                 align-items: center;
+                 background-color: gray;
+                }
+            }
+            .add{
+                padding: 5px;
+                height: 30px;
+            }
+           }
+    }
+    
+}

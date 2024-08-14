@@ -1,0 +1,61 @@
+.video{ 
+  background-color: black;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    .player{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    .time{
+      display: flex;
+      align-items: center;
+    }
+    .icons-wrapper{
+      position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        
+        .side{
+          display: flex;
+          align-items: center;
+          color: white;
+          &.left{
+            gap: 20px;
+          }
+          &.right{
+            margin-right: 50px;
+            .settings-container{
+              .settings{
+                position: relative;
+                .options{
+                  background-color: black;
+                position: absolute;
+                bottom: 30px;
+                right: -9px;
+                .option{
+                  cursor: pointer;
+                  z-index: 100;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                 width: 70px;
+                 padding: 10px;
+          
+                }
+                }
+              }
+            }
+          }
+          .icon-container{
+            z-index: 100;
+            .icon{
+              z-index: -1;
+            }
+          }
+        }
+    }
+}
