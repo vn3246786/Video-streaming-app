@@ -28,7 +28,7 @@ export const registerUser = async (user ,UserDispatch,accesstokenDispatch )=>{
 export const loginUser = async (user ,UserDispatch,accesstokenDispatch)=>{
     UserDispatch({type:"start"});
     try { 
-        const res = await axios.post("/api/auth/login", user)
+        const res = await axios.post("/api/auth/login", user,{withCredentials:true})
         if(findError(res.data)){
             UserDispatch({type:"failure" ,payload:res.data})
             toast.error(res.data)
