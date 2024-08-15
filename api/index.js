@@ -21,6 +21,7 @@ app.use(cors({
     headers: ["Content-Type"],
     credentials: true,
 }))
+
 app.use('/api/paymentsWebhook' , paymentsWebhook)
 app.use(bodyParser.json())
 app.use(express.json())
