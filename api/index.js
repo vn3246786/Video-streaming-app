@@ -12,8 +12,20 @@ const paymentsWebhook =require('./Routes/paymentsWebhook')
 const cors = require('cors')
 const cookie =require('cookie-parser')
 
+
+const whitelist = ['https://video-streaming-app-4zki.onrender.com']
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
 app.use(cookie())
-app.use(cors())
+app.use(cors(corsOptions))
 app.use('/api/paymentsWebhook' , paymentsWebhook)
 app.use(bodyParser.json())
 app.use(express.json())
