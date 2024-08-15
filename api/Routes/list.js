@@ -141,6 +141,7 @@ router.get("/random" , verify,subscriptionVerification, async (req,res)=> {
                {$match : {isSeries : true}},
                {$sample : {size : 5}} 
             ])
+            console.log(list)
             res.status(200).json(list)
          
         } catch (error) {
