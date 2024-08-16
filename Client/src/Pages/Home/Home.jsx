@@ -84,8 +84,7 @@ useEffect(()=>{
 
 },[Series])
 
-console.log(randomMovie)
-console.log(lists)
+
 
   return (
     <>
