@@ -15,11 +15,11 @@ const cookie =require('cookie-parser')
 
 
 
-app.use(cookie())
 app.use(cors({
     origin: "https://video-streaming-app-4zki.onrender.com",
     credentials: true,
 }))
+app.use(cookie())
 
 app.use('/api/paymentsWebhook' , paymentsWebhook)
 app.use(bodyParser.json())
