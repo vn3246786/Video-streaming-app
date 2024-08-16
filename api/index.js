@@ -20,7 +20,6 @@ const options = {
 credentials:true
 }
 
-app.use(cors(options))
 app.options("*",cors(options))
 app.use(cookie())
 
