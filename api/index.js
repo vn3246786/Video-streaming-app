@@ -16,7 +16,7 @@ const cookie =require('cookie-parser')
 
 const options = {
   origin:["http://localhost:5173","https://video-streaming-app-client.onrender.com"],
-methods:['GET', 'PUT', 'POST'],
+
 credentials:true
 }
 
