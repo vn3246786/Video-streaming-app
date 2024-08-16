@@ -23,7 +23,8 @@ const corsOptions = {
       callback(new Error('Not allowed by CORS'))
     }
   },
-  Credentials:true
+  Credentials:true,
+  allowedHeaders:"token"
 }
 
 app.use(cors(corsOptions))
