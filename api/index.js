@@ -14,7 +14,7 @@ const cookie =require('cookie-parser')
 
 
 
-const whitelist = ['http://example1.com', 'http://example2.com']
+const whitelist = ["https://video-streaming-app-4zki.onrender.com"]
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
