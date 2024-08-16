@@ -18,7 +18,6 @@ const cookie =require('cookie-parser')
 app.use(cookie())
 app.use(cors({
     origin: "https://video-streaming-app-4zki.onrender.com",
-    headers: ["Content-Type"],
     credentials: true,
 }))
 
