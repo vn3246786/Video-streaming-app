@@ -10,7 +10,6 @@ export const getRandomMovie = async (setRandomMovie,isSeries,accesstoken)=>{
     try {
         if(isSeries){
             const res =await axios.get("/api/movies/random?isSeries=true", {headers:{
-                'content-type': 'application/json',
                 token :"bearer "+ accesstoken
                 
             }} ) 
@@ -29,7 +28,6 @@ export const getRandomMovie = async (setRandomMovie,isSeries,accesstoken)=>{
              }
         }else{
             const res =await axios.get("/api/movies/random", {headers:{
-                'content-type': 'application/json',
                 token :"bearer "+accesstoken
             }} )
             if(findError(res.data)){
@@ -67,7 +65,6 @@ export const getLists = async(setLists,isSeries,accesstoken)=>{
     try {
        if(isSeries){
            const res = await axios.get("/api/lists/random?isSeries=true" , {headers:{
-            'content-type': 'application/json',
                token:"bearer "+ accesstoken
            }} )
          
@@ -84,7 +81,6 @@ export const getLists = async(setLists,isSeries,accesstoken)=>{
          }
   }else{
     const res = await axios.get("/api/lists/random" , {headers:{
-        'content-type': 'application/json',
         token:"bearer "+ accesstoken
     }} )
     if(findError(res.data)){
