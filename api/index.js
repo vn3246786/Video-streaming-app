@@ -9,17 +9,11 @@ const moviesRouter = require('./Routes/movies')
 const listRouter = require('./Routes/list')
 const paymentRouter = require('./Routes/payments')
 const paymentsWebhook =require('./Routes/paymentsWebhook')
-const cors = require('cors')
 const cookie =require('cookie-parser')
 
 
 
-const options = {
-  origin:["http://localhost:5173","https://video-streaming-app-client-ha3mq8ocq-vn3246786s-projects.vercel.app/"],
-Credentials:true
 
-}
-app.use(cors(options))
 app.use(cookie())
 
 app.use('/api/paymentsWebhook' , paymentsWebhook)
