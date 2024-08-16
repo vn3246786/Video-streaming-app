@@ -24,7 +24,7 @@ const corsOptions = {
     }
   },
   Credentials:true,
-  allowedHeaders:"token"
+  allowedHeaders:"x-token"
 }
 
 app.use(cors(corsOptions))
