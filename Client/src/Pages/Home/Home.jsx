@@ -84,6 +84,9 @@ useEffect(()=>{
 
 },[Series])
 
+console.log(randomMovie)
+console.log(lists)
+
   return (
     <>
      {randomMovie.error==="user is not subscribed"&& <PayToWatch logOut={logOut}/>}
