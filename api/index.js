@@ -14,11 +14,19 @@ const cookie =require('cookie-parser')
 
 
 
+const whitelist = ['http://example1.com', 'http://example2.com']
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
+  Credentials:true
+}
 
-app.use(cors({
-    origin: "https://video-streaming-app-4zki.onrender.com",
-    credentials: true,
-}))
+app.use(cors(corsOptions))
 app.use(cookie())
 
 app.use('/api/paymentsWebhook' , paymentsWebhook)
