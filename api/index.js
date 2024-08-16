@@ -14,14 +14,14 @@ const cookie =require('cookie-parser')
 
 
 
-
-
-app.use(cors({
+const options = {
   origin:["http://localhost:5173","https://video-streaming-app-client.onrender.com"],
 methods:['GET', 'PUT', 'POST'],
 credentials:true
-}))
+}
 
+app.use(cors(options))
+app.options("*",cors(options))
 app.use(cookie())
 
 app.use('/api/paymentsWebhook' , paymentsWebhook)
