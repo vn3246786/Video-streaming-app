@@ -7,6 +7,7 @@ import AccessTokenContextProvider from './Contexts/AccessTokenContext/AccessToke
 import axios from 'axios'
 
 axios.defaults.withCredentials=true
+axios.defaults.headers.common['Content-Type']="application/json"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <UserContextProvider>
