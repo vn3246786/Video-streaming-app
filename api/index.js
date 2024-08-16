@@ -1,6 +1,7 @@
 const dotenv = require('dotenv').config()
 const express = require('express');
 const app = express()
+const router = require('express').Router()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const authRouter = require('./Routes/auth')
@@ -19,8 +20,8 @@ const options = {
 
 credentials:true
 }
-
-app.options("*",cors(options))
+app.use(cors(options))
+router.options("*",cors({origin:true}))
 app.use(cookie())
 
 app.use('/api/paymentsWebhook' , paymentsWebhook)
