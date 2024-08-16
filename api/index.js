@@ -1,7 +1,6 @@
 const dotenv = require('dotenv').config()
 const express = require('express');
 const app = express()
-const router = require('express').Router()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const authRouter = require('./Routes/auth')
@@ -16,12 +15,12 @@ const cookie =require('cookie-parser')
 
 
 const options = {
-  origin:["http://localhost:5173","https://video-streaming-app-client.onrender.com"],
+  origin:["http://localhost:5173","https://video-streaming-app-client-ha3mq8ocq-vn3246786s-projects.vercel.app/"],
 
-credentials:true
+
 }
 app.use(cors(options))
-router.options("*",cors({origin:true}))
+app.options("*",cors({origin:true}))
 app.use(cookie())
 
 app.use('/api/paymentsWebhook' , paymentsWebhook)
