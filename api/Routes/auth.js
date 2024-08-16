@@ -78,7 +78,6 @@ res.json("username already exists")
 
 
 router.post('/login',async (req, res) => {
-console.log("a")
   try {
     const user = await User.findOne({email:req.body.email},{watchlist:0})
    if ( !user ) {
