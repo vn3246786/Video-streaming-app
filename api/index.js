@@ -16,7 +16,11 @@ const cookie =require('cookie-parser')
 
 
 
-app.use(cors())
+app.use(cors({
+  origin:"http://localhost:5173",
+  
+}))
+
 app.use(cookie())
 
 app.use('/api/paymentsWebhook' , paymentsWebhook)
