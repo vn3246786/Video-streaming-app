@@ -17,8 +17,9 @@ const cookie =require('cookie-parser')
 
 
 app.use(cors({
-  origin:["http://localhost:5173","https://video-streaming-app-client.onrender.com"]
-
+  origin:["http://localhost:5173","https://video-streaming-app-client.onrender.com"],
+methods:['GET', 'PUT', 'POST'],
+credentials:true
 }))
 
 app.use(cookie())
