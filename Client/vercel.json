@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+      {
+        "source": "/api/:path*",
+        "destination": "https://video-streaming-app-6wzt.onrender.com/:path*"
+      }
+    ]
+  }
