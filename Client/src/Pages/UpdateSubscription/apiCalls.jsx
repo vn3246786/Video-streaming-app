@@ -9,7 +9,7 @@ export async function getPlans(setPlans,accesstoken){
         error:null
     })
 try {
-    const res =await axios.get(`${import.meta.env.API_URL}/api/payments/get-plans`,{headers:{
+    const res =await axios.get(`${import.meta.env.VITE_API_URL}/api/payments/get-plans`,{headers:{
         token : "bearer "+ accesstoken
     }})
     if(findError(res.data)){
@@ -36,7 +36,7 @@ export async function updatePlan(setUpdateState,planId,subscriptionId,id,navigat
         error:null
     })
 try {
-    const res =await axios.put(`${import.meta.env.API_URL}/api/payments/update-subscription/${id}`,{planId:planId,subscriptionId:subscriptionId},{headers:{
+    const res =await axios.put(`${import.meta.env.VITE_API_URL}/api/payments/update-subscription/${id}`,{planId:planId,subscriptionId:subscriptionId},{headers:{
         token : "bearer "+ accesstoken
     }})
     if(findError(res.data)){

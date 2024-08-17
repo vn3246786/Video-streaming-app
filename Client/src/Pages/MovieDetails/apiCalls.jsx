@@ -11,7 +11,7 @@ setState({
     error:null
 })
 try {
-    const res =await axios.put(`${import.meta.env.API_URL}/api/movies/rate/${id}`,{rating:rating},{headers:{
+    const res =await axios.put(`${import.meta.env.VITE_API_URL}/api/movies/rate/${id}`,{rating:rating},{headers:{
         token:'bearer '+accesstoken
     }})
     if(findError(res.data)){
@@ -49,7 +49,7 @@ setState({
     error:null
 })
 try {
-    const res =await axios.get(`${import.meta.env.API_URL}/api/users/get-ratings`,{headers:{
+    const res =await axios.get(`${import.meta.env.VITE_API_URL}/api/users/get-ratings`,{headers:{
         token:'bearer '+accesstoken
     }})
     if(findError(res.data)){
