@@ -46,6 +46,7 @@ router.get("/random" , verify,subscriptionVerification, async (req,res)=> {
             res.status(200).json(movie)
           
         } catch (error) {
+            console.log(error)
             res.status(500).json("server error")
             
         }

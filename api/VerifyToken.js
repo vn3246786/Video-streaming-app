@@ -15,7 +15,7 @@ jwt.verify(token ,process.env.JWT_ACCESSTOKEN_KEY, (err , user) => {
 })
     }else{
         res.json("accesstoken not found")
-       
+        console.log("accesstoken not found")
     }
 
 }
