@@ -11,7 +11,6 @@ import {AccessTokenContext} from "./Contexts/AccessTokenContext/AccessTokenConte
 import GenrePage from './Pages/GenrePage/GenrePage'
 import Video from './Pages/Video/Video'
 import WatchListPage from './Pages/WatchListPage/WatchListPage'
-import Test from './Pages/Test'
 import CheckoutForm from './Pages/CheckoutForm/CheckoutForm'
 import ReturnPage from './Pages/ReturnPage/ReturnPage'
 import UpdateSubscription from './Pages/UpdateSubscription/UpdateSubscription'
@@ -41,7 +40,6 @@ const {User} = useContext(UserContext)
       <Route path='/play' element = {<Video/>}/>
       <Route path='/Genre' element = {<GenrePage/>}/>
       <Route path='/watchlist' element = {<WatchListPage/>}/>
-      <Route path='/test' element = {<Test/>}/>
       <Route path='/profile' element = {<Profile/>}/>
       <Route path='/Updatesubscription' element = {<UpdateSubscription/>}/>
       <Route path='/subscription' element = {<Subscription/>}/>
