@@ -8,7 +8,7 @@ export async function getNewAccessToken(id,accesstokenDispatch,navigate,accessto
 
     accesstokenDispatch({type:"start"})
   try {
-    const res =await axios.get(`/api/auth/subscription-succesfull/${id}`,{headers:{
+    const res =await axios.get(`${process.env.API_URL}/api/auth/subscription-succesfull/${id}`,{headers:{
       token:"bearer "+accesstoken
     }})
     if(findError(res.data)){

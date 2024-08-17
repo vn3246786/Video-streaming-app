@@ -9,7 +9,7 @@ export const getRandomMovie = async (setRandomMovie,isSeries,accesstoken)=>{
     })
     try {
         if(isSeries){
-            const res =await axios.get("/api/movies/random?isSeries=true", {headers:{
+            const res =await axios.get(`${process.env.API_URL}/api/movies/random?isSeries=true`, {headers:{
                 token :"bearer "+ accesstoken
                 
             }} ) 
@@ -27,7 +27,7 @@ export const getRandomMovie = async (setRandomMovie,isSeries,accesstoken)=>{
               })
              }
         }else{
-            const res =await axios.get("https://video-streaming-app-dguh.onrender.com/api/movies/random", {headers:{
+            const res =await axios.get(`${process.env.API_URL}/api/movies/random`, {headers:{
                 token :"bearer "+accesstoken
             }} )
             console.log(res)
@@ -65,7 +65,7 @@ export const getLists = async(setLists,isSeries,accesstoken)=>{
        })
     try {
        if(isSeries){
-           const res = await axios.get("/api/lists/random?isSeries=true" , {headers:{
+           const res = await axios.get(`${process.env.API_URL}/api/lists/random?isSeries=true` , {headers:{
                token:"bearer "+ accesstoken
            }} )
          
@@ -81,7 +81,7 @@ export const getLists = async(setLists,isSeries,accesstoken)=>{
                })
          }
   }else{
-    const res = await axios.get("/api/lists/random" , {headers:{
+    const res = await axios.get(`${process.env.API_URL}/api/lists/random` , {headers:{
         token:"bearer "+ accesstoken
     }} )
     if(findError(res.data)){
@@ -114,7 +114,7 @@ setState({
     error:null
 })
 try {
-    const res = await axios.get(`/api/movies/recommended-movies`,{
+    const res = await axios.get(`${process.env.API_URL}/api/movies/recommended-movies`,{
         headers:{token:"bearer "+accesstoken}
     })
     if(findError(res.data)){

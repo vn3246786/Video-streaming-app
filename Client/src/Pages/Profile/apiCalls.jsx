@@ -9,7 +9,7 @@ export async function getSubscriptionDetails(setsubscriptionDetails,id,accesstok
       error:null
     })
     try {
-      const res = await axios.get(`/api/users/subscription-details/${id}`,
+      const res = await axios.get(`${process.env.API_URL}/api/users/subscription-details/${id}`,
         {headers:{
           token:"bearer "+accesstoken
         }}
@@ -32,7 +32,7 @@ export async function getSubscriptionDetails(setsubscriptionDetails,id,accesstok
   export async function cancelSubscription(setLoading,id,subscriptionId,accesstoken){
     setLoading(true)
     try {
-      const res = await axios.put(`/api/payments/cancel-subscription/${id}`,{subscriptionId:subscriptionId},{headers:{
+      const res = await axios.put(`${process.env.API_URL}/api/payments/cancel-subscription/${id}`,{subscriptionId:subscriptionId},{headers:{
         token:'bearer '+accesstoken
       }})
       console.log(res.data)
