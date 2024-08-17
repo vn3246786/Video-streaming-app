@@ -15,7 +15,7 @@ const cookie =require('cookie-parser')
 
 app.options("*",cors({
     origin:"https://streaming-app-25vv.onrender.com",
-allowedHeaders:["Content-type","token"],
+allowedHeaders:"*",
 credentials:true
 }))
 
