@@ -134,7 +134,6 @@ router.get("/search",verify, async (req,res) => {
 
 
 router.get("/random" , verify,subscriptionVerification, async (req,res)=> {
-console.log("b")
     if(req.query.isSeries){
         try {
             const list = await List.aggregate([
