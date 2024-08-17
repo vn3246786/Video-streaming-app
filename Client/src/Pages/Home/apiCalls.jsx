@@ -27,7 +27,7 @@ export const getRandomMovie = async (setRandomMovie,isSeries,accesstoken)=>{
               })
              }
         }else{
-            const res =await axios.get("/api/movies/random", {headers:{
+            const res =await axios.get("https://video-streaming-app-dguh.onrender.com/api/movies/random", {headers:{
                 token :"bearer "+accesstoken
             }} )
             console.log(res)
