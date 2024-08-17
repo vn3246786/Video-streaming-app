@@ -20,6 +20,9 @@ app.use((req, res, next) => {
     next()
 })
 
+app.options("*",(req,res)=>{
+    console.log(req)
+})
 
 app.use(cookie())
 
