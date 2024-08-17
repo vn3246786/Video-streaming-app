@@ -24,7 +24,7 @@ async function getPaymentResuls(){
     const urlParams = new URLSearchParams(queryString);
     const sessionId = urlParams.get('session_id');
 
-    const res = await axios(`/api/payments/session_status?session_id=${sessionId}`)
+    const res = await axios(`${import.meta.env.VITE_API_URL}/api/payments/session_status?session_id=${sessionId}`)
    setStatus(res.data.status)
   }
       getPaymentResuls()

@@ -21,7 +21,7 @@ const plan={
  useEffect(()=>{
 
  async function getCheckoutform(id,plan,accesstoken){
- const res =await axios.post(`/api/payments/create-checkout-session/${id}`,plan,
+ const res =await axios.post(`${import.meta.env.VITE_API_URL}/api/payments/create-checkout-session/${id}`,plan,
   {headers:{
 token:"bearer "+accesstoken
  }})

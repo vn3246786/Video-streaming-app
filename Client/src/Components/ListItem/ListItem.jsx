@@ -32,7 +32,7 @@ const{User}=useContext(UserContext)
     error:false,
     movie:null})
     try {
-      const res = await axios.get(`/api/movies/find/${id}`, {headers:{
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/movies/find/${id}`, {headers:{
         token :"bearer "+ accesstoken}})
         if(findError(res.data)){
           setMovie({loading:false,
