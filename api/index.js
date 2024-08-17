@@ -19,6 +19,12 @@ allowedHeaders:"*",
 credentials:true
 }))
 
+app.use(cors({
+    origin:"https://streaming-app-25vv.onrender.com",
+allowedHeaders:"*",
+credentials:true
+}))
+
 
 app.use(cookie())
 
