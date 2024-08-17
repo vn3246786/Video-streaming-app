@@ -1,4 +1,5 @@
 const dotenv = require('dotenv').config()
+const cors = require("cors")
 const express = require('express');
 const app = express()
 const mongoose = require('mongoose')
@@ -12,7 +13,17 @@ const paymentsWebhook =require('./Routes/paymentsWebhook')
 const cookie =require('cookie-parser')
 
 
+app.options("*",cors({
+    origin:"https://streaming-app-25vv.onrender.com",
+allowedHeaders:["Content-type","token"],
+credentials:true
+}))
 
+app.use(cors({
+    origin:"https://streaming-app-25vv.onrender.com",
+allowedHeaders:["Content-type","token"],
+credentials:true
+}))
 
 app.use(cookie())
 
