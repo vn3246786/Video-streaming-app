@@ -9,7 +9,7 @@ export const getMoviesByGenre = async(setMovies,genre,isSeries,accesstoken)=>{
         error:null
       })
         try {
-           const res = await axios.get(`${process.env.API_URL}/api/movies/genre/`+genre+`?isSeries=${isSeries}` ,{headers:{
+           const res = await axios.get(`${import.meta.env.API_URL}/api/movies/genre/`+genre+`?isSeries=${isSeries}` ,{headers:{
             token :"bearer "+ accesstoken}})
             if(findError(res.data)){
                 setMovies({

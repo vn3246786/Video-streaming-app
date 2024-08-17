@@ -5,7 +5,7 @@ import { findError } from "../../ErrorFinder"
 
 export async function getSuggestion(setsuggestions,autocomplete,accesstoken) {
     try {
-      const res = await axios.get(`${process.env.API_URL}/api/movies/search-autocomplete?search=` + autocomplete, {
+      const res = await axios.get(`${import.meta.env.API_URL}/api/movies/search-autocomplete?search=` + autocomplete, {
         headers: {
           token: "bearer " + accesstoken
         }
@@ -23,7 +23,7 @@ export const getSearchedMovie = async(SearchedMovie,setSearchedMovies,accesstoke
         error:null
           })
 try {
-    const res = await axios.get(`${process.env.API_URL}/api/movies/search?search=`+SearchedMovie,{headers:{
+    const res = await axios.get(`${import.meta.env.API_URL}/api/movies/search?search=`+SearchedMovie,{headers:{
         token :"bearer "+ accesstoken}})
         if(findError(res.data)){
             setSearchedMovies({

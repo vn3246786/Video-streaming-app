@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 export const registerUser = async (user ,UserDispatch,accesstokenDispatch )=>{
     UserDispatch({type:"start"});
     try {
-        const res = await axios.post(`${process.env.API_URL}/api/auth/register`, user)
+        const res = await axios.post(`${import.meta.env.API_URL}/api/auth/register`, user)
         console.log(res.data)
      if(findError(res.data)){
         UserDispatch({type:"failure" ,payload:res.data})
@@ -28,7 +28,7 @@ export const registerUser = async (user ,UserDispatch,accesstokenDispatch )=>{
 export const loginUser = async (user ,UserDispatch,accesstokenDispatch)=>{
     UserDispatch({type:"start"});
     try { 
-        const res = await axios.post(`${process.env.API_URL}/api/auth/login`, user)
+        const res = await axios.post(`${import.meta.env.API_URL}/api/auth/login`, user)
         console.log(res)
         if(findError(res.data)){
             UserDispatch({type:"failure" ,payload:res.data})
@@ -52,7 +52,7 @@ export const loginUser = async (user ,UserDispatch,accesstokenDispatch)=>{
 export async function  updateUser (UserDispatch,id,userdetails,accesstokenDispatch,accesstoken){
     UserDispatch({type:"start"});
     try {
-        const res = await axios.put(`${process.env.API_URL}/api/users/update/${id}`, userdetails,{headers:{
+        const res = await axios.put(`${import.meta.env.API_URL}/api/users/update/${id}`, userdetails,{headers:{
             token:"bearer "+accesstoken
         }})
         if(findError(res.data)){

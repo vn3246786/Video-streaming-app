@@ -8,7 +8,7 @@ export async function getPlans(setPlans,accesstoken){
         error:null
     })
 try {
-    const res =await axios.get(`${process.env.API_URL}/api/payments/get-plans`,{headers:{
+    const res =await axios.get(`${import.meta.env.API_URL}/api/payments/get-plans`,{headers:{
         token : "bearer "+ accesstoken
     }})
     setPlans({loading:true,

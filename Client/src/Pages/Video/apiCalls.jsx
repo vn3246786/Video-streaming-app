@@ -17,7 +17,7 @@ export async function updateWatchHistory (update,id,timestamp,dispatch,accesstok
     console.log("1")
     dispatch({type:"start"})
 try {
-   const res= await axios.put(`${process.env.API_URL}/api/users/update-watchhistory${update?"?update=true":""}`,{id:id,timestamp:timestamp},{headers:{
+   const res= await axios.put(`${import.meta.env.API_URL}/api/users/update-watchhistory${update?"?update=true":""}`,{id:id,timestamp:timestamp},{headers:{
         token:"bearer "+accesstoken
     }})
     if(findError(res.data)){

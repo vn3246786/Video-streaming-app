@@ -7,7 +7,7 @@ export async function refreshAccessToken(dispatch){
     if(currentTime.getTime()>decodedToken.iat*1000){
         dispatch({type:"start"})
   try {
-    const res = await axios.get(`${process.env.API_URL}/api/auth/get-accesstoken`)
+    const res = await axios.get(`${REACT_APP_API_URL}/api/auth/get-accesstoken`)
     if(findError(res.data)){
         dispatch({type:"failure",payload:res.data})
     }else dispatch({type:"success",payload:res.data})

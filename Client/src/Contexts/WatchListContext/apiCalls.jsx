@@ -6,7 +6,7 @@ export async function getWatchList(dispatch,id,accesstoken){
     
 dispatch({type:'start'})
 try {
-    const res =await axios.get(`${process.env.API_URL}/api/users/watchlist/${id}`,{headers:{
+    const res =await axios.get(`${import.meta.env.API_URL}/api/users/watchlist/${id}`,{headers:{
         token:'bearer '+accesstoken
     }})
     if(findError(res.data)){
@@ -21,7 +21,7 @@ export async function updateWatchList(dispatch,id,setUpdateWatchListLoading,NewW
     setUpdateWatchListLoading(true)
 dispatch({type:'start'})
 try {
-    const res =  await axios.put(`${process.env.API_URL}/api/users/watchlist/${id}`,NewWatchList,{headers:{
+    const res =  await axios.put(`${import.meta.env.API_URL}/api/users/watchlist/${id}`,NewWatchList,{headers:{
         token:'bearer '+accesstoken
     }})
     if(findError(res.data)){
