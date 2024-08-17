@@ -13,17 +13,12 @@ const paymentsWebhook =require('./Routes/paymentsWebhook')
 const cookie =require('cookie-parser')
 
 
-app.options("*",cors({
-    origin:"https://streaming-app-25vv.onrender.com",
-allowedHeaders:"*",
-credentials:true
-}))
-
-app.use(cors({
-    origin:"https://streaming-app-25vv.onrender.com",
-allowedHeaders:"*",
-credentials:true
-}))
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Content-type, Token');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    next()
+})
 
 
 app.use(cookie())
