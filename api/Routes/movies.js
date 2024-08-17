@@ -94,8 +94,9 @@ router.get('/recommended-movies',verify,subscriptionVerification,async(req,res)=
     try {
         const user = await User.findById(req.user.id)
         if(user.recommendations&&user.recommendations.length>0){
-            const movies = await Movies.find({genre:{$all:[user.recommendations.toString().split(',')]}}).limit(10)
+            const movies = await Movies.find({genre:{$all:user.recommendations.toString().split(',')}}).limit(10)
             res.json(movies)
+            console.log(user.recommendations.toString().split(','))
         }else res.json("no recommendations")
     } catch (error) {
         console.log(error)

@@ -6,7 +6,7 @@ export default defineConfig({
   server:{
    
 proxy:{
-  "/api":"https://video-streaming-app-6wzt.onrender.com"
+  "/api":"http://localhost:8000"
 }
   },
   plugins: [react()],
