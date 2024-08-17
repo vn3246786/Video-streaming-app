@@ -27,7 +27,9 @@ export const getRandomMovie = async (setRandomMovie,isSeries,accesstoken)=>{
               })
              }
         }else{
-            const res =await axios.get("/api/movies/random" )
+            const res =await axios.get("/api/movies/random", {headers:{
+                token :"bearer "+accesstoken
+            }} )
             console.log(res)
             if(findError(res.data)){
                 setRandomMovie({
