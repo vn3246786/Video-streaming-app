@@ -6,7 +6,7 @@ import { loginUser} from '../../Contexts/UserContext/apiCalls'
 import { useRef,useContext } from 'react'
 import {Oval} from 'react-loader-spinner'
 import {AccessTokenContext}from "../../Contexts/AccessTokenContext/AccessTokenContext"
-import image from "./assets/best-fall-movies.jpg"
+import image from "../../assets/best-fall-movies.jpg"
 
 const Login = () => {
   const {UserDispatch,UserError,UserLoading}=useContext(UserContext)
