@@ -10,7 +10,6 @@ import Login from "./Pages/Login/Login"
 import Register from "./Pages/Register/Register"
 import { AuthContext } from "./Contexts/AuthContext/AuthContext"
 import { useContext } from "react"
-import Test from "../Test"
 import UpdateProducts from "./Pages/UpdateProducts/UpdateProducts"
 import UpdateLists from "./Pages/UpdateLists/UpdateLists"
 import Plans from "./Pages/Plans/Plans"
@@ -48,7 +47,6 @@ const {User}=useContext(AuthContext)
       <Route path='/profile' element = {<Profile/>}/> 
       <Route path='/changepassword' element = {<ChangePassword/>}/> 
       <Route path='/otp' element = {<OtpPage/>}/> 
-      <Route path='/test' element = {<Test/>}/> 
       </Routes>
       </Router>
   </div>
