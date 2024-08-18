@@ -48,7 +48,7 @@ function updateProfile(){
   return (
     <div className='profile'>
         <div className="header">
-      <ArrowBackIos className='icon'/>
+      <ArrowBackIos className='icon' onClick={()=>navigate(-1)}/>
 <div className="title">Profile</div>
  </div>
  {<div className="User-details">
