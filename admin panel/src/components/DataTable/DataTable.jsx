@@ -7,7 +7,7 @@ import { AccessTokenContext} from '../../Contexts/AccessTokenContext/AccessToken
 import { Link } from 'react-router-dom';
 import { adminStatus, AllLists, AllMovies, AllUsers, deleteList, deleteMovie, LatesUsers, removeUser } from './apiCalls';
 import CircularProgress from '@mui/material/CircularProgress';
-
+import defaultImage from "../../assets/default-profile.png"
 
 
 function CustumFooter({ page, navigatePage, setRowSize,rowSize }) {
@@ -202,7 +202,7 @@ export default function DataTable({ type,navigatePage,setRowSize,setFilters,heig
           return { id: movie._id, title: movie.title, genre: movie.genre, type: movie.isSeries?"Series":"Movie", createdAt: movie.createdAt,Edit:movie,Delete:type==="movieslist"?{id:movie._id,files:[movie.image,movie.video.LQ,movie.video.HQ]}:movie._id}})
       }else
     return data[0].map((user, i) => {
-      return { id: user._id,Profile:user.profilePic?user.profilePic:"src/assets/451-4517876_default-profile-hd-png-download.png", username: user.username, email: user.email,
+      return { id: user._id,Profile:user.profilePic?user.profilePic:defaultImage, username: user.username, email: user.email,
          isAdmin: user.isAdmin,subscription:user.payment_status?"Active":"Inactive",
        plan:user.payment_status?user.subscription_details.plan:"none",createdAt: user.createdAt,delete:{id:user._id,profilePic:user.profilePic} }
     })

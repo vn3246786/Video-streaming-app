@@ -7,6 +7,7 @@ import {AccessTokenContext} from "../../Contexts/AccessTokenContext/AccessTokenC
 import { CircularProgress } from '@mui/material'
 import { checkTokenExpiry } from '../../RefreshToken'
 import { updateUser } from '../../Contexts/AuthContext/apiCalls'
+import defaultImage from "../../assets/default-profile.png"
 
 const Profile = () => {
   const navigate=useNavigate()
@@ -53,7 +54,7 @@ function updateProfile(){
  {<div className="User-details">
   {AuthLoading&&<CircularProgress className='spinner'/>}
   <div className="wrapper profile-pic">
-    <img className='image'src={User.profilePic} alt="" />
+    <img className='image'src={User.profilePic?User.profilePic:defaultImage} alt="" />
     <input type="file" id='file' className='file' onChange={()=>setProfilePic(e.target.files[0])}/>
     <label htmlFor="file" className='edit' >
     <Edit />
