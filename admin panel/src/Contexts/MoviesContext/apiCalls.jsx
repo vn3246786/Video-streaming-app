@@ -8,7 +8,7 @@ export async function getAllMovies(dispatch,sort,rowSize,series,genre,lastRowId,
     dispatch({type:"start"})
 
 function getQuery(){
-   let arr =[`/api/movies?sort=${sort}&rowSize=${rowSize}`]
+   let arr =[`${import.meta.env.VITE_API_URL}/api/movies?sort=${sort}&rowSize=${rowSize}`]
    series && (arr=[...arr,`&series=${series}`])
 genre && (arr=[...arr,`&genre=${genre}`])
 search && (arr=[...arr,`&search=${search}`])
@@ -38,7 +38,7 @@ export async function searchMovies(searchTerm,setAutoComplete,accesstoken){
         error:null
       })
     try {
-        const res =searchTerm&& await axios.get("/api/movies/search?search="+searchTerm,{headers:{
+        const res =searchTerm&& await axios.get(`${import.meta.env.VITE_API_URL}/api/movies/search?search=`+searchTerm,{headers:{
             token:"bearer "+accesstoken
         }})
     if(findError(res.data)){
@@ -66,7 +66,7 @@ export async function searchMovies(searchTerm,setAutoComplete,accesstoken){
 export async function deleteAndUpdateMovies(dispatch,sort,rowSize,series,genre,lastRowId,navigation,search,id,files,data,accesstoken){
     dispatch({type:'start'})
     try {
-        const res = await axios.delete(`/api/movies/delete/${id}`,{headers:{
+        const res = await axios.delete(`${import.meta.env.VITE_API_URL}/api/movies/delete/${id}`,{headers:{
             token:"bearer "+accesstoken
         },
     data:{files:files}

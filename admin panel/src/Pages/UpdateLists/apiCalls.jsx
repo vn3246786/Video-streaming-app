@@ -11,7 +11,7 @@ export async function updateList(setResponse,list,id,accesstoken){
         error:null
     })
     try {
-        const res = await axios.put(`/api/lists/update/${id}`,list,{headers:{
+        const res = await axios.put(`${import.meta.env.VITE_API_URL}/api/lists/update/${id}`,list,{headers:{
             token:"bearer "+accesstoken
         }})
        if(findError(res.data)){

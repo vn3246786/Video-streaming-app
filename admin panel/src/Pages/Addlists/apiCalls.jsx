@@ -11,7 +11,7 @@ export async function addList(setResponse,list,accesstoken){
         error:null
     })
     try {
-        const res = await axios.post("/api/lists",list,{headers:{
+        const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/lists`,list,{headers:{
             token:"bearer "+accesstoken
         }})
         console.log(res.data)

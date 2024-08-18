@@ -10,7 +10,7 @@ export async function getstats (setstats,NewYear,acceesstoken){
       data:null
      })
         try {
-            const res = await axios.get("/api/users/stats/"+NewYear, {headers:
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/users/stats/`+NewYear, {headers:
                 {token : "bearer " +  acceesstoken}
               })
              

@@ -9,7 +9,7 @@ export async function addPlan(setStatus,plan,accesstoken){
       error:null
     })
     try {
-      const res =await axios.post('/api/payments/create-plan',plan,{headers:
+      const res =await axios.post(`${import.meta.env.VITE_API_URL}/api/payments/create-plan`,plan,{headers:
         {token:'bearer '+accesstoken}
       })
   if(findError(res.data)){

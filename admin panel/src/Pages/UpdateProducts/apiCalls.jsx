@@ -15,7 +15,7 @@ export async function updateMovie(setResponse,id,Product,accesstoken){
         error:null
     })
     try {
-        const res = await axios.put(`/api/movies/update/${id}`,Product,{headers:{
+        const res = await axios.put(`${import.meta.env.VITE_API_URL}/api/movies/update/${id}`,Product,{headers:{
             token:"bearer "+accesstoken
         }})
        if(findError(res.data)){

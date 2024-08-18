@@ -11,7 +11,7 @@ const currentTime = new Date
 if(token.exp*1000-60<currentTime.getTime()){
 dispatch({type:"start"})
 try {
-    const res =await axios.get('/api/auth/get-accesstoken')
+    const res =await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/get-accesstoken`)
     if(findError(res.data)){
         dispatch({type:"failure",payload:res.data})
     }else {

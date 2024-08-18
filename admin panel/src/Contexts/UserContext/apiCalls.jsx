@@ -5,7 +5,7 @@ import { toast } from "react-toastify"
 export async function getLatesUsers(dispatch,accesstoken){
 dispatch({type:"start"})
 try {
-    const res = await axios.get("/api/users?latest=true",{headers:{
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/users?latest=true`,{headers:{
         token:"bearer "+accesstoken
     }})
     if(findError(res.data))
@@ -22,7 +22,7 @@ export async function getAllUsers(dispatch,sort,rowSize,admin,lastRowId,navigati
     dispatch({type:"start"})
 
 function getQuery(){
-   let arr =[`/api/users?sort=${sort}&rowSize=${rowSize}`]
+   let arr =[`${import.meta.env.VITE_API_URL}/api/users?sort=${sort}&rowSize=${rowSize}`]
   admin && (arr=[...arr,`&admin=${admin}`])
   searchterm&&(arr= [...arr,`&search=${searchterm}`])
 lastRowId && (arr=[...arr,`&lastRowId=${lastRowId}`])
@@ -51,7 +51,7 @@ export async function searchUsers(searchTerm,setAutoComplete,accesstoken){
         error:null
       })
     try {
-        const res = await axios.get("/api/users/search?search="+searchTerm,{headers:{
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/users/search?search=`+searchTerm,{headers:{
             token:"bearer "+accesstoken
         }})
        if(findError(res.data)){
@@ -75,7 +75,7 @@ export async function searchUsers(searchTerm,setAutoComplete,accesstoken){
 
 export async function toggleAdminStatus(dispatch,sort,rowSize,admin,lastRowId,navigation,searchterm,isAdmin,id,type,accesstoken){
     try {
-        const res = await axios.put(`/api/users/update/${id}`,{isAdmin:isAdmin},{headers:{
+        const res = await axios.put(`${import.meta.env.VITE_API_URL}/api/users/update/${id}`,{isAdmin:isAdmin},{headers:{
             token:"bearer "+accesstoken
         }})
         if(findError(res.data)){     
@@ -92,7 +92,7 @@ export async function toggleAdminStatus(dispatch,sort,rowSize,admin,lastRowId,na
 
 export async function deleteUser(dispatch,sort,rowSize,admin,lastRowId,navigation,searchterm,id,type,profilePic,accesstoken){
     try {
-        const res = await axios.delete(`/api/users/delete/${id}`,{data:{profilePic:profilePic},headers:{
+        const res = await axios.delete(`${import.meta.env.VITE_API_URL}/api/users/delete/${id}`,{data:{profilePic:profilePic},headers:{
             token:"bearer "+accesstoken
         }})
         if(findError(res.data)){

@@ -10,7 +10,7 @@ export async function addNewMovie(setResponse,Product,accesstoken){
         error:null
     })
     try {
-        const res = await axios.post("/api/movies/",Product,{headers:{
+        const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/movies`,Product,{headers:{
             token:"bearer "+accesstoken
         }})
        if(findError(res.data)){

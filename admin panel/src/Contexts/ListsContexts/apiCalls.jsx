@@ -8,7 +8,7 @@ export async function getAllLists(dispatch,sort,rowSize,series,genre,lastRowId,n
     dispatch({type:"start"})
 
 function getQuery(){
-   let arr =[`/api/lists?sort=${sort}&rowSize=${rowSize}`]
+   let arr =[`${import.meta.env.VITE_API_URL}/api/lists?sort=${sort}&rowSize=${rowSize}`]
    series && (arr=[...arr,`&series=${series}`])
 genre && (arr=[...arr,`&genre=${genre}`])
 search && (arr=[...arr,`&search=${search}`])
@@ -38,7 +38,7 @@ export async function searchLists(searchTerm,setAutoComplete,accesstoken){
         error:null
       })
     try {
-        const res = await axios.get("/api/lists/search?search="+searchTerm,{headers:{
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/lists/search?search=`+searchTerm,{headers:{
             token:"bearer "+accesstoken
         }})
        if(findError(res.data)){
@@ -67,7 +67,7 @@ export async function searchLists(searchTerm,setAutoComplete,accesstoken){
 export async function deleteAndUpdateLists(dispatch,sort,rowSize,series,genre,lastRowId,navigation,search,id,data,accesstoken){
     dispatch({type:'start'})
     try {
-        const res = await axios.delete(`/api/lists/delete/${id}`,{headers:{
+        const res = await axios.delete(`${import.meta.env.VITE_API_URL}/api/lists/delete/${id}`,{headers:{
             token:"bearer "+accesstoken
         }})
        if(findError(res.data)){

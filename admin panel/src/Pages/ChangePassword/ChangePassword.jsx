@@ -24,7 +24,7 @@ setSessionId({
   error:null
 })
 try {
-  const res = await axios.post('/api/auth/create-session' ,{email:state,password:passwordRef.current.value})
+  const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/create-session` ,{email:state,password:passwordRef.current.value})
   if(findError(res.data)){
     setSessionId({
       loading:false,

@@ -7,7 +7,7 @@ export const registerUser = async (user ,dispatch,accesstokenDispatch )=>{
     dispatch({type:"start"});
    
     try {
-        const res = await axios.post("/api/auth/register", user)
+        const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, user)
      if(findError(res.data)){
         dispatch({type:"failure" ,payload:res.data})
      }else {
@@ -25,7 +25,7 @@ export const registerUser = async (user ,dispatch,accesstokenDispatch )=>{
 export const loginUser = async (user ,dispatch,accesstokenDispatch )=>{
     dispatch({type:"start"});
     try {
-        const res = await axios.post("/api/auth/admin-login", user)
+        const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/admin-login`, user)
         if(findError(res.data)){
             dispatch({type:"failure" ,payload:res.data})
             toast.error(res.data)
@@ -46,7 +46,7 @@ export const loginUser = async (user ,dispatch,accesstokenDispatch )=>{
 export async function  updateUser (UserDispatch,id,userdetails,accesstokenDispatch,accesstoken){
     UserDispatch({type:"start"});
     try {
-        const res = await axios.put(`/api/users/update/${id}`, userdetails,{headers:{
+        const res = await axios.put(`${import.meta.env.VITE_API_URL}/api/users/update/${id}`, userdetails,{headers:{
             token:"bearer "+accesstoken
         }})
         if(findError(res.data)){

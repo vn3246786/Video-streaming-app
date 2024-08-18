@@ -9,7 +9,7 @@ export async function updatePlan(setResponse,id,plan,accesstoken){
         error:null
     })
     try {
-        const res =await axios.put(`/api/payments/update-plan/${id}`,plan,{headers:{
+        const res =await axios.put(`${import.meta.env.VITE_API_URL}/api/payments/update-plan/${id}`,plan,{headers:{
             token:"bearer "+accesstoken
         }})
         if(findError(res.data)){
@@ -39,7 +39,7 @@ export async function deletePlan(setResponse,id,image,accesstoken){
         error:null
     })
     try {
-        const res =await axios.delete(`/api/payments/delete-plan/${id}`,{data:{image:image},headers:{
+        const res =await axios.delete(`${import.meta.env.VITE_API_URL}/api/payments/delete-plan/${id}`,{data:{image:image},headers:{
             token:"bearer "+accesstoken
         }})
         if(findError(res.data)){

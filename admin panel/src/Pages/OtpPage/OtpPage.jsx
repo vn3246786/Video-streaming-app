@@ -58,7 +58,7 @@ async function getOTP(){
     error:null
   })
 try {
-  const res =await axios.post(`/api/auth/create-OTP/`,{email:emailRef.current.value})
+  const res =await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/create-OTP/`,{email:emailRef.current.value})
   if(findError(res.data)){
     setOtpId({
       loading:false,
@@ -91,7 +91,7 @@ async function sendOTP(){
     error:null
   })
 try {
-  const res =await axios.post(`/api/auth/verify-OTP/${otpId.data}`,{OTP:otpRef.current.value})
+  const res =await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/verify-OTP/${otpId.data}`,{OTP:otpRef.current.value})
   if(findError(res.data)){
     setSessionId({
       loading:false,
@@ -127,7 +127,7 @@ async function createNewPassword(){
       error:null
     })
   try {
-    const res =await axios.put(`/api/auth/change-password/${sessionId.data}`,{password:newPasswordRef.current.value})
+    const res =await axios.put(`${import.meta.env.VITE_API_URL}/api/auth/change-password/${sessionId.data}`,{password:newPasswordRef.current.value})
     if(findError(res.data)){
       setNewPassword({
         loading:false,
