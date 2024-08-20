@@ -253,7 +253,7 @@ updateFirebaseStorage(req,res,User)
                 const { password , ...info} = user._doc
                 const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY,{expiresIn:"20s"} )
                    const refreshToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status}, process.env.REFRESH_TOKEN_SECRET_KEY)
-                   res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:"true"})
+                   res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:true})
             res.status(200).json(req.user.id === req.params.id?{...info,accessToken}:"user updated successfully")
             }catch(error){
                 if(error.code===11000){

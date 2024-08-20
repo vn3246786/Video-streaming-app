@@ -58,7 +58,7 @@ const jwt = require('jsonwebtoken')
              const {payment_status,password,subscription_details,...rest}=user._doc
              const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY,{expiresIn:"20s"} )
              const refreshToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status}, process.env.REFRESH_TOKEN_SECRET_KEY)
-             res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:"true"})
+             res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:true})
              res.json({...rest,accessToken})
          } catch (error) {
           console.log(error)
@@ -123,7 +123,7 @@ const jwt = require('jsonwebtoken')
                 const { password , ...info} = user._doc
                 const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY,{expiresIn:"20s"} )
                    const refreshToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status}, process.env.REFRESH_TOKEN_SECRET_KEY)
-                   res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:"true"})
+                   res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:true})
             res.status(200).json({...info,accessToken})
             }catch(error){
               if(error.code===11000){
@@ -189,7 +189,7 @@ const jwt = require('jsonwebtoken')
               const { password , ...info} = user._doc
               const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY,{expiresIn:"20s"} )
                  const refreshToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status}, process.env.REFRESH_TOKEN_SECRET_KEY)
-                 res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:"true"})
+                 res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:true})
           res.status(200).json({...info,accessToken})
           }catch(error){
             if(error.code===11000){
