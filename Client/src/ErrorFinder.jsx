@@ -15,7 +15,8 @@ export function findError(response){
     response==="unauthorized access denied"||
     response==='password is incorrect'||
     response==='username already exists'||
-    response==='email already exists'
+    response==='email already exists'||
+    response==='refreshtoken not found'
     )
   }
 

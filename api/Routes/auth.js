@@ -61,7 +61,7 @@ if(req.file){
        const {payment_status,password,subscription_details,...rest}=user._doc
        const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY,{expiresIn:"15m"} )
        const refreshToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status}, process.env.REFRESH_TOKEN_SECRET_KEY)
-       res.cookie("refreshToken",refreshToken,{httpOnly:true})
+       res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:"true"})
        res.json({...rest,accessToken})
    } catch (error) {
     if(error.code===11000){
@@ -91,7 +91,7 @@ router.post('/login',async (req, res) => {
       const {password,payment_status,subscription_details, ...info} = user._doc
       const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY ,{expiresIn:'15m'})
       const refreshToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status}, process.env.REFRESH_TOKEN_SECRET_KEY)
-      res.cookie("refreshToken",refreshToken,{httpOnly:true})
+      res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:"true"})
       res.status(200).json({...info , accessToken})
     }else {
       res.json('username or password is incorrect')
@@ -121,7 +121,7 @@ router.post('/admin-login',async (req, res) => {
           const {password,payment_status,subscription_details, ...info} = user._doc
           const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY ,{expiresIn:'15m'})
           const refreshToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status}, process.env.REFRESH_TOKEN_SECRET_KEY)
-          res.cookie("refreshToken",refreshToken,{httpOnly:true})
+          res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:"true"})
           res.status(200).json({...info , accessToken})
         }else res.json("you are not an admin")
        
@@ -148,7 +148,7 @@ router.get('/get-accesstoken',async(req,res)=>{
     const currenttime = new Date
     const accessToken = jwt.sign({...user,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY ,{expiresIn:'15m'})
     const refreshToken =jwt.sign({...user,generatedAt:currenttime.getTime()},process.env.REFRESH_TOKEN_SECRET_KEY)
-    res.cookie("refreshToken",refreshToken,{httpOnly:true})
+    res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:"true"})
     res.json(accessToken)
   }
   } )
@@ -164,7 +164,7 @@ try {
   const user = await User.findById(req.params.id)
   const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY,{expiresIn:"15m"} )
  const refreshToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status}, process.env.REFRESH_TOKEN_SECRET_KEY)
- res.cookie("refreshToken",refreshToken,{httpOnly:true})
+ res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:"true"})
   res.json(accessToken)
 } catch (error) {
   console.log(error)
@@ -224,7 +224,7 @@ router.put('/change-password/:id',async (req, res) => {
         { password : crypto.AES.encrypt(req.body.password,process.env.CRYPTO_SECRETE_KEY).toString()})
         const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY,{expiresIn:"15m"} )
         const refreshToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status}, process.env.REFRESH_TOKEN_SECRET_KEY )
-        res.cookie("refreshToken",refreshToken)
+        res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:"true"})
         res.json({...user,accessToken})
         console.log('success')
     } catch (error) {
