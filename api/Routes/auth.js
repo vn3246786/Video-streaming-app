@@ -90,7 +90,7 @@ router.post('/login',async (req, res) => {
       const {password,payment_status,subscription_details, ...info} = user._doc
       const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY ,{expiresIn:"20s"} )
       const refreshToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status}, process.env.REFRESH_TOKEN_SECRET_KEY)
-      res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"None",secure:true, domain:"video-streaming-app-dguh.onrender.com"})
+      res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:true})
       res.status(200).json({...info , accessToken})
     }else {
       res.json('username or password is incorrect')
