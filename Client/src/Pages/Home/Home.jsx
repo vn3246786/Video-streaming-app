@@ -84,7 +84,6 @@ useEffect(()=>{
 
 },[Series])
 
-console.log(accesstokenError)
 
   return (
     <div className='home'>
