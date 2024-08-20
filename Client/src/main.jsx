@@ -6,7 +6,7 @@ import WatchListContextProvider from './Contexts/WatchListContext/WatchListConte
 import AccessTokenContextProvider from './Contexts/AccessTokenContext/AccessTokenContext.jsx'
 import axios from 'axios'
 
-
+axios.defaults.withCredentials=true
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <UserContextProvider>
