@@ -6,6 +6,10 @@ import MoviesContextProvider from './Contexts/MoviesContext/MoviesContext.jsx'
 import ListsContextProvider from './Contexts/ListsContexts/ListsContext.jsx'
 import UserContextProvider from './Contexts/UserContext/UserContext.jsx'
 import AccessTokenContextProvider from './Contexts/AccessTokenContext/AccessTokenContext.jsx'
+import axios from 'axios'
+
+
+axios.defaults.withCredentials=true
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 <AccessTokenContextProvider>
