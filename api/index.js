@@ -13,7 +13,8 @@ const paymentsWebhook =require('./Routes/paymentsWebhook')
 const cookie =require('cookie-parser')
 
 
-app.use(cors({credentials:true}))
+app.use(cors({origin:"https://video-streaming-app-client.vercel.app/" ,
+    credentials:true}))
 
 app.use(cookie())
 
