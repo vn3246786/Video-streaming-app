@@ -112,7 +112,7 @@ function Add(id){
             </div>
            <div className="buttons">
             <button> 
-              <PlayArrow onClick={()=>navigate("/movieDetails",{state:movie})}/>
+              <PlayArrow onClick={()=>navigate("/movieDetails",{state:movie.data})}/>
             </button>
            </div>
         </div>

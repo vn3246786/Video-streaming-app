@@ -10,10 +10,6 @@ const SkeletonLoader = ({type}) => {
     width="100%"
     height=150
     break;
-  case 'featuredMovie':
-    width='100%'
-    height='90vh'
-    break;
   case 'movie':
     width=270
     height=150

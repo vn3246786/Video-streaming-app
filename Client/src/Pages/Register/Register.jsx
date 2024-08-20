@@ -48,10 +48,10 @@ function onClickRegister(e){
    if(displayImage){
    reduceImageSize(imageRef.current.files[0]).then((value)=>{
     formData.append("profilePic",value)
-    registerUser(formData,UserDispatch,accesstokenDispatch )
+    !UserLoading &&  registerUser(formData,UserDispatch,accesstokenDispatch )
    })
    }else {
-    registerUser(formData,UserDispatch,accesstokenDispatch )
+    !UserLoading &&  registerUser(formData,UserDispatch,accesstokenDispatch )
    }
   }else{
     toast.error("passwords do not match")

@@ -21,8 +21,15 @@ const navigate =useNavigate()
 
 
 function handleClick(index,type){
-  type==='movies'&& setSeries(false)
+  type==='movies' && setSeries(false)
   type==='series'&& setSeries(true)
+  setVideoType((p)=>{
+    return p.map((value,i)=>{
+if(i===index){
+  return {...value,onSelected:true}
+}else return {...value,onSelected:false}
+    })
+  })
 }
 
   return (

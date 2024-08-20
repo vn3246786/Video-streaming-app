@@ -63,7 +63,6 @@ function addRating(){
    ]
    checkTokenExpiry(accesstoken,accesstokenDispatch,ApiCalls)
 }
-
   return (
     <div className='movieDetails'>
      {(previousRating.loading||response.loading)&& <CircularProgress className='spinner' size={70}/>}

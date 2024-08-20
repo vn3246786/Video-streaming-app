@@ -29,7 +29,6 @@ export const loginUser = async (user ,UserDispatch,accesstokenDispatch)=>{
     UserDispatch({type:"start"});
     try { 
         const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, user)
-        console.log(res)
         if(findError(res.data)){
             UserDispatch({type:"failure" ,payload:res.data})
             toast.error(res.data)

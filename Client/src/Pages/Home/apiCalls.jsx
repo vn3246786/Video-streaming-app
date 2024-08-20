@@ -30,7 +30,6 @@ export const getRandomMovie = async (setRandomMovie,isSeries,accesstoken)=>{
             const res =await axios.get(`${import.meta.env.VITE_API_URL}/api/movies/random`, {headers:{
                 token :"bearer "+accesstoken
             }} )
-            console.log(res)
             if(findError(res.data)){
                 setRandomMovie({
                     loading:false,

@@ -13,6 +13,7 @@ import {AccessTokenContext}from "../../Contexts/AccessTokenContext/AccessTokenCo
 import {checkTokenExpiry} from "../../RefreshToken"
 import ErrorPage from '../../Components/ErrorPage/ErrorPage'
 import RecommendedList from '../../Components/RecommendedList/RecommendedList'
+import { CircularProgress } from '@mui/material'
 
 const Home = () => {
  const [Series , setSeries]=useState(false)
@@ -85,14 +86,13 @@ useEffect(()=>{
 },[Series])
 
 
-
   return (
-    <>
+    <div className='home'>
+  <Navbar setSeries = {setSeries} series={Series} logOut={()=>logOut()}/>
+ {randomMovie.loading && <CircularProgress className='spinner' size={70}/>}
      {randomMovie.error==="user is not subscribed"&& <PayToWatch logOut={logOut}/>}
    {randomMovie.error&& <ErrorPage/>}
    {randomMovie.data&& <div className='home'>
-  <Navbar setSeries = {setSeries} series={Series} logOut={()=>logOut()}/>
- {randomMovie.loading && <SkeletonLoader type="featuredMovie"/>}
    {randomMovie.data&&<Featured Movie ={randomMovie.data} />}
    {recommendations.loading && <SkeletonLoader  type="list"/>}
    {recommendations.data&&<RecommendedList list={recommendations.data}/>}
@@ -101,7 +101,7 @@ useEffect(()=>{
    return <List key={i} list={list}  />
    })} 
     </div>}
-    </>
+    </div>
 
   )
 }
