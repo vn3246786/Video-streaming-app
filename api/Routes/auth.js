@@ -78,7 +78,6 @@ res.json("username already exists")
 
 
 router.post('/login',async (req, res) => {
-  console.log("a")
   try {
     const user = await User.findOne({email:req.body.email},{watchlist:0})
    if ( !user ) {
@@ -91,7 +90,7 @@ router.post('/login',async (req, res) => {
       const {password,payment_status,subscription_details, ...info} = user._doc
       const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY ,{expiresIn:"20s"} )
       const refreshToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status}, process.env.REFRESH_TOKEN_SECRET_KEY)
-      res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"lax",secure:true})
+      res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:true, domain:"https://video-streaming-app-dguh.onrender.com"})
       res.status(200).json({...info , accessToken})
     }else {
       res.json('username or password is incorrect')
