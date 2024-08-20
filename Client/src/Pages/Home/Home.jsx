@@ -40,7 +40,6 @@ const {accesstoken,accesstokenDispatch,accesstokenError}=useContext(AccessTokenC
 const {WatchListDispatch}=useContext(WatchListContext)
 
 function logOut(){
-  
     sessionStorage.removeItem("User")
     sessionStorage.removeItem("accesstoken")
   UserDispatch({type:"logout"})
@@ -85,6 +84,7 @@ useEffect(()=>{
 
 },[Series])
 
+console.log(accesstokenError)
 
   return (
     <div className='home'>
