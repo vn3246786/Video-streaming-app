@@ -13,7 +13,7 @@ const paymentsWebhook =require('./Routes/paymentsWebhook')
 const cookie =require('cookie-parser')
 
 
-app.use(cors())
+app.use(cors({credentials:true}))
 
 app.use(cookie())
 
