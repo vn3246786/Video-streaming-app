@@ -4,7 +4,7 @@ const verify =require('../VerifyToken')
 const stripe = require('stripe')(process.env.STRIPE_SECRETE_KEY);
 const express = require('express');
 
-const endpointSecret =process.env.STRIPE_ENDPOINTSECRETE
+const endpointSecret =`${process.env.STRIPE_ENDPOINTSECRETE}`
 
 router.post('/webhook',express.raw({ type: 'application/json' }),async (request, response) => {
     const sig = request.headers['stripe-signature'];
