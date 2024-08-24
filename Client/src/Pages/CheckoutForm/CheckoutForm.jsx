@@ -9,7 +9,7 @@ import { checkTokenExpiry } from "../../RefreshToken";
 
 export default function CheckoutForm ()  {
 const [options,setOptions]=useState(null)
-  const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+  const stripePromise = loadStripe(`${import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY}`);
  
   const{User}=useContext(UserContext)
   const{accesstoken,accesstokenDispatch}=useContext(AccessTokenContext)
