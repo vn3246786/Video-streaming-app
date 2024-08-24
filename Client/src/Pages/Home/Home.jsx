@@ -90,7 +90,7 @@ useEffect(()=>{
   <Navbar setSeries = {setSeries} series={Series} logOut={()=>logOut()}/>
  {randomMovie.loading && <CircularProgress className='spinner' size={70}/>}
      {randomMovie.error==="user is not subscribed"&& <PayToWatch logOut={logOut}/>}
-   {randomMovie.error&& <ErrorPage/>}
+   {randomMovie.error && randomMovie.error==!"user is not subscribed" && <ErrorPage/>}
    {randomMovie.data&& <div className='home'>
    {randomMovie.data&&<Featured Movie ={randomMovie.data} />}
    {recommendations.loading && <SkeletonLoader  type="list"/>}
