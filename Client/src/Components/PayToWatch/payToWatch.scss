@@ -1,33 +1,39 @@
 .payToWatch{
+    position: relative;
     .icon{
         position: absolute;
         color: white;
         font-size: 3rem;
-        z-index: 100;
+        z-index: 200;
+        margin-top: 20px;
     }
     .subscibe-container{
+        position: absolute;
+        z-index: 100;
         display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
         height: 100vh;
+        width: 100vw;
         background: rgb(2,0,36);
         background: linear-gradient(0deg, rgb(2, 0, 36) 0%, rgb(10, 10, 228) 59%, transparent 141%);
         .subscribe{
             color: white;
             background-color: rgb(7, 5, 56);
-            z-index: 100;
             height: 50px;
             border-radius: 7%;
             width: 200px;
         }
        }
-    .bg-image{
+    .image-container{
         top: 0;
-        position: absolute;
         height: 100vh;
-        object-fit: cover;
-        z-index: -1;
+        position: absolute;
+        .bg-image{
+            object-fit: cover;
+            height: 100%;
+        }
     }
     
 }

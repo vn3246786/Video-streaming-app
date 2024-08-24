@@ -13,7 +13,9 @@ const PayToWatch = ({logOut}) => {
         <button className='subscribe'>Subscribe to continue</button>
       </Link>
       </div>
+      <div className="image-container">
       <img className='bg-image' src={backgroundImage} alt="" />
+      </div>
     </div>
   )
 }

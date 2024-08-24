@@ -87,7 +87,7 @@ useEffect(()=>{
 
   return (
     <div className='home'>
-  <Navbar setSeries = {setSeries} series={Series} logOut={()=>logOut()}/>
+ {randomMovie.error===!"user is not subscribed"&& <Navbar setSeries = {setSeries} series={Series} logOut={()=>logOut()}/>}
  {randomMovie.loading && <CircularProgress className='spinner' size={70}/>}
      {randomMovie.error==="user is not subscribed"&& <PayToWatch logOut={logOut}/>}
    {randomMovie.error && randomMovie.error==!"user is not subscribed" && <ErrorPage/>}
