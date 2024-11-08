@@ -34,7 +34,6 @@ function onClickLogin(e){
             <input type="text" ref={emailRef} placeholder='Email' />
             <input type="password" ref={passwordRef} placeholder='Password' />
         <button onClick={(e)=>onClickLogin(e)}>login</button>
-       {AuthError&& <span>{AuthError}</span>}
        {AuthLoading&& <CircularProgress className='spinner' size={70}/>}
        <div className="forgot-password" onClick={()=>navigate('/otp')}>forgot password?</div>
        <div className='new' onClick={()=>navigate('/Register')} >New to netflix? Register</div>

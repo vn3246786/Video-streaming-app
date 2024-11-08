@@ -60,7 +60,6 @@ function onClickRegister(e){
             <input type="password" required ref={confirmpasswordRef} placeholder='Confirm Password' />
           <button type='submit'>Register</button>
           {UserLoading&& <CircularProgress className='spinner'/>}
-         {UserError&&<div className="error">{UserError}</div>}
            <span>Already have an account? 
               <Link className='link' to={"/Login"}>
                 <span>Login in</span>

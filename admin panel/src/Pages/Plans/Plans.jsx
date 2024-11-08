@@ -45,6 +45,8 @@ const ApiCalls=[
 checkTokenExpiry(accesstoken,accesstokenDispatch,ApiCalls)
 }
 
+console.log(plans)
+
   return (
     <div className='plans'>
      {plans.loading&& <CircularProgress className='spinner' size={70}/>}
