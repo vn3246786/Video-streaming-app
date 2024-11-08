@@ -75,6 +75,38 @@ res.json("username already exists")
 }
 )
 
+router.post('/admin-register',upload.single("profilePic"), async (req, res) => {
+
+if(req.file){
+  firebaseUpload(req, res, User) 
+}else{
+  const newUser = new User({
+    profilePic:req.body.profilePic,
+    username : req.body.username,
+    email : req.body.email,
+    password : crypto.AES.encrypt(req.body.password,process.env.CRYPTO_SECRETE_KEY).toString(),
+  
+   })
+   try {
+    const currenttime = new Date
+       const user = await newUser.save()
+       const {payment_status,password,subscription_details,...rest}=user._doc
+       const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY,{expiresIn:"20s"}  )
+       const refreshToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status}, process.env.REFRESH_TOKEN_SECRET_KEY)
+       res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:true})
+       res.json("user successfully registered")
+   } catch (error) {
+    if(error.code===11000){
+      if(error.keyPattern.username){
+res.json("username already exists")
+      }else res.json("email already exists")
+    }else 
+    res.json("server error")
+   }
+}
+}
+)
+
 
 
 router.post('/login',async (req, res) => {

@@ -23,7 +23,6 @@ const[displayImage,setdisplayImage]=useState(null)
 
 function onClickRegister(e){
   e.preventDefault()
-  console.log('a')
   if(passwordRef.current.value===confirmpasswordRef.current.value){
     let formData = new FormData
     formData.append("username",userNameRef.current.value)
@@ -31,9 +30,9 @@ function onClickRegister(e){
     formData.append("password",passwordRef.current.value)
    if(displayImage){
     formData.append("profilePic",imageRef.current.files[0])
-    registerUser(formData,UserDispatch,accesstokenDispatch )
+    registerUser(formData)
    }else {
-    registerUser(formData,UserDispatch,accesstokenDispatch )
+    registerUser(formData)
    }
   }else{
     toast.error("passwords do not match")

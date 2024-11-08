@@ -13,7 +13,7 @@ const paymentsWebhook =require('./Routes/paymentsWebhook')
 const cookie =require('cookie-parser')
 
 
-app.use(cors({origin:["https://video-streaming-app-client.vercel.app","https://streaming-app-nu-two.vercel.app","http://localhost:5173"],
+app.use(cors({origin:[process.env.CLIENT_URL,process.env.ADMIN_URL,process.env.LOCALHOST_URL],
     credentials:true}))
 
 app.use(cookie())
@@ -31,7 +31,9 @@ app.use('/api/payments' , paymentRouter)
 
 mongoose.connect(process.env.MONGO_URL).then(()=> console.log('mongodb connected')).catch((error)=> console.log(error))
 
-app.listen(process.env.PORT||3000, () => {console.log('server running')})
+app.listen(process.env.PORT||3000, () => {
+    console.log('server running')
+})
 
 // This is your test secret API key.
 

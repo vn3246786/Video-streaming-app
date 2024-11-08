@@ -11,7 +11,8 @@ export function findError(response){
       response==="Wrong otp"||
     response==="unauthorized access denied"||
     response==="you are not an admin"||
-    response==='password is incorrect'
-
+    response==='password is incorrect'||
+    response==="username already exists"||
+    response==="email already exists"
     )
   }
