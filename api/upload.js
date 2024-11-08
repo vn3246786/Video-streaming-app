@@ -56,7 +56,7 @@ const jwt = require('jsonwebtoken')
           const currenttime = new Date
              const user = await newUser.save()
              const {payment_status,password,subscription_details,...rest}=user._doc
-             const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY,{expiresIn:"20s"} )
+             const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY,{expiresIn:"300s"} )
              const refreshToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status}, process.env.REFRESH_TOKEN_SECRET_KEY)
              res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:true})
              res.json({...rest,accessToken})
@@ -121,7 +121,7 @@ const jwt = require('jsonwebtoken')
                   {...rest,profilePic:downloadURL}, 
                 {new : true})
                 const { password , ...info} = user._doc
-                const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY,{expiresIn:"20s"} )
+                const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY,{expiresIn:"300s"} )
                    const refreshToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status}, process.env.REFRESH_TOKEN_SECRET_KEY)
                    res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:true})
             res.status(200).json({...info,accessToken})
@@ -187,7 +187,7 @@ const jwt = require('jsonwebtoken')
                 {...rest,profilePic:downloadURL}, 
               {new : true})
               const { password , ...info} = user._doc
-              const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY,{expiresIn:"20s"} )
+              const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY,{expiresIn:"300s"} )
                  const refreshToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status}, process.env.REFRESH_TOKEN_SECRET_KEY)
                  res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:true})
           res.status(200).json({...info,accessToken})
