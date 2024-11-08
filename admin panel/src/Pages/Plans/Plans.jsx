@@ -45,7 +45,6 @@ const ApiCalls=[
 checkTokenExpiry(accesstoken,accesstokenDispatch,ApiCalls)
 }
 
-console.log(plans)
 
   return (
     <div className='plans'>
