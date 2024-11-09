@@ -3,16 +3,19 @@ import { findError } from "../../ErrorFinder";
 import { toast } from "react-toastify";
 
 
-export const registerUser = async (user)=>{
-   
+export const registerUser = async (user,setState)=>{
+    setState(true)
     try {
         const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/admin-register`, user)
      if(findError(res.data)){
+        setState(false)
         toast.error(res.data)
      }else {
+        setState(false)
          toast.success(res.data) 
         }  
     } catch (error) {
+        setState(false)
         toast.error("network error")
     }
 

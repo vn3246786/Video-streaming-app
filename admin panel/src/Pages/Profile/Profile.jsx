@@ -27,23 +27,23 @@ const[profilePic,setProfilePic]=useState(null)
 
 
 function updateProfile(){
-  let userdetails={}
-  username.data!==User.username && (userdetails = {...userdetails,username:username.data})
-  email.data!==User.username && (userdetails = {...userdetails,email:email.data})
+  let formdata=new FormData
+  username.data!==User.username && formdata.append("username",username.data)
+  email.data!==User.email && formdata.append("email",email.data)
+  profilePic!==User.profilePic && formdata.append("profilePic",profilePic)
   const ApiCalls=[
     {
       func:updateUser,
       params:[
         AuthDispatch,
         User._id,
-        userdetails,
+        formdata,
         accesstokenDispatch
       ]
     }
   ]
   checkTokenExpiry(accesstoken,accesstokenDispatch,ApiCalls)
 }
-
 
   return (
     <div className='profile'>
@@ -52,10 +52,10 @@ function updateProfile(){
 <div className="title">Profile</div>
  </div>
  {<div className="User-details">
-  {AuthLoading&&<CircularProgress className='spinner'/>}
+  {AuthLoading&&<CircularProgress className='spinner' size={70}/>}
   <div className="wrapper profile-pic">
-    <img className='image'src={User.profilePic?User.profilePic:defaultImage} alt="" />
-    <input type="file" id='file' className='file' onChange={()=>setProfilePic(e.target.files[0])}/>
+    <img className='image'src={profilePic?URL.createObjectURL(profilePic):User.profilePic?User.profilePic:defaultImage} alt="" />
+    <input type="file" id='file' className='file' onChange={(e)=>setProfilePic(e.target.files[0])}/>
     <label htmlFor="file" className='edit' >
     <Edit />
     </label>

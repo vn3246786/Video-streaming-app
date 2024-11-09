@@ -1,10 +1,8 @@
 import React, { useContext, useRef, useState } from 'react'
 import "./register.scss"
 import { Link } from 'react-router-dom'
-import { UserContext } from '../../Contexts/UserContext/UserContext'
 import { registerUser } from '../../Contexts/AuthContext/apiCalls'
 import { AddAPhoto } from '@mui/icons-material'
-import {AccessTokenContext} from "../../Contexts/AccessTokenContext/AccessTokenContext"
 import { toast } from 'react-toastify'
 import CircularProgress from '@mui/material/CircularProgress';
 import backgroundImage from "../../assets/best-fall-movies.jpg"
@@ -13,13 +11,13 @@ import defaultImage from "../../assets/default-profile.png"
 
 const Register = () => {
 const[displayImage,setdisplayImage]=useState(null)
-  const {UserDispatch,UserError,UserLoading}=useContext(UserContext)
-  const {accesstokenDispatch}=useContext(AccessTokenContext)
   const userNameRef = useRef()
   const emailRef = useRef()
   const imageRef = useRef()
   const passwordRef = useRef()
   const confirmpasswordRef = useRef()
+
+  const[requestState,setRequestState]=useState(false)
 
 function onClickRegister(e){
   e.preventDefault()
@@ -30,16 +28,15 @@ function onClickRegister(e){
     formData.append("password",passwordRef.current.value)
    if(displayImage){
     formData.append("profilePic",imageRef.current.files[0])
-    registerUser(formData)
+    registerUser(formData,setRequestState)
    }else {
-    registerUser(formData)
+    registerUser(formData,setRequestState)
    }
   }else{
     toast.error("passwords do not match")
   }
 
 }
-
 
   return (
     <div className='register'>
@@ -59,7 +56,7 @@ function onClickRegister(e){
             <input type="password" name='password'ref={passwordRef} required  placeholder='Password' />
             <input type="password" required ref={confirmpasswordRef} placeholder='Confirm Password' />
           <button type='submit'>Register</button>
-          {UserLoading&& <CircularProgress className='spinner'/>}
+          {requestState&& <CircularProgress className='spinner' size={70}/>}
            <span>Already have an account? 
               <Link className='link' to={"/Login"}>
                 <span>Login in</span>

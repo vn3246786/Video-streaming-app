@@ -46,7 +46,7 @@ router.post('/create-session' ,async(req,res)=>{
 router.post('/register',upload.single("profilePic"), async (req, res) => {
 
 if(req.file){
-  firebaseUpload(req, res, User) 
+  firebaseUpload(req, res, User,"client") 
 }else{
   const newUser = new User({
     profilePic:req.body.profilePic,
@@ -78,7 +78,7 @@ res.json("username already exists")
 router.post('/admin-register',upload.single("profilePic"), async (req, res) => {
 
 if(req.file){
-  firebaseUpload(req, res, User) 
+  firebaseUpload(req, res, User,"admin") 
 }else{
   const newUser = new User({
     profilePic:req.body.profilePic,

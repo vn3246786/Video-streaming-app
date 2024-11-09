@@ -5,7 +5,7 @@ const crypto = require('crypto-js')
 const jwt = require('jsonwebtoken')
 
 
- function firebaseUpload(req, res, User) {
+ function firebaseUpload(req, res, User,type) {
   
     const storageRef = ref(firebaseStorage, `profile-image/${req.file.originalname}+${req.params.id}` );
     const metadata = {
@@ -59,9 +59,13 @@ const jwt = require('jsonwebtoken')
              const accessToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status,generatedAt:currenttime.getTime()}, process.env.JWT_ACCESSTOKEN_KEY,{expiresIn:"300s"} )
              const refreshToken = jwt.sign({id : user._id , isAdmin : user.isAdmin,payment_status:user.payment_status}, process.env.REFRESH_TOKEN_SECRET_KEY)
              res.cookie("refreshToken",refreshToken,{httpOnly:true ,sameSite:"none",secure:true})
-             res.json({...rest,accessToken})
+            type==="admin"?res.json("user successfully registered"):res.json({...rest,accessToken})
          } catch (error) {
-          console.log(error)
+          if(error.code===11000){
+            if(error.keyPattern.username){
+      res.json("username already exists")
+            }else res.json("email already exists")
+          }else 
           res.json("server error")
          }
        });

@@ -261,6 +261,7 @@ updateFirebaseStorage(req,res,User)
               res.json("username already exists")
                     }else res.json("email already exists")
                   }else 
+                  console.log(error)
                   res.json("server error")
             }
         }
